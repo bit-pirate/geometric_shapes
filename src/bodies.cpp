@@ -128,7 +128,7 @@ bool bodies::Body::samplePointInside(random_numbers::RandomNumberGenerator &rng,
 
 bool bodies::Sphere::containsPoint(const Eigen::Vector3d &p, bool verbose) const
 {
-  return (center_ - p).squaredNorm() < radius2_;
+  return (center_ - p).squaredNorm() <= radius2_ + 1e-5;
 }
 
 void bodies::Sphere::useDimensions(const shapes::Shape *shape) // radius
